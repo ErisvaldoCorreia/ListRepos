@@ -27,8 +27,8 @@ export default class App extends Component<{}> {
       {
         id: 3,
         thumbnail: 'https://facebook.github.io/react-native/docs/assets/favicon.png',
-        title: 'handzon.github.io',
-        author: 'HandzOn',
+        title: 'zeroum.github.io',
+        author: 'ZeroUm Hackathon Team',
       },
     ],
   }  
@@ -40,6 +40,8 @@ export default class App extends Component<{}> {
         {/* Cabecalho do App */}
         <View style={styles.header}>
           <Text style={styles.headerText}>GitHub Repositorios</Text>
+
+          {/* Botão para adicionar novos itens na lista de repositórios */}
           <TouchableOpacity onPress={() => {}}>
             <Text style={styles.headerButton}> + </Text>
           </TouchableOpacity>
