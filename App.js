@@ -8,7 +8,7 @@ import {
 import Repo from './componentes/Repo';
 import NewRepoModal from './componentes/NewRepoModal';
 
-export default class App extends Component<{}> {
+export default class App extends Component {
   
   state = {
     /* Estados de informação para compor os repositórios */
@@ -33,6 +33,7 @@ export default class App extends Component<{}> {
       thumbnail: response.owner.avatar_url,
       title: response.name,
       author: response.owner.login,
+      url: response.html_url,
     };
 
     this.setState({
@@ -60,6 +61,9 @@ export default class App extends Component<{}> {
             <Text style={styles.headerButton}> + </Text>
           </TouchableOpacity>
         </View>
+        <View style={styles.msg}>
+          <Text style={styles.msgTxt}>Adicione seus Repositorios Favoritos</Text>
+        </View>
 
         {/* Conteudo dos repositorios github */}
         <ScrollView contentContainerStyle={styles.repoList}>
@@ -76,6 +80,8 @@ export default class App extends Component<{}> {
           visible={this.state.modalVisible}
         />
 
+        <View style={styles.footer}><Text>Erisvaldo Correia MobileDev - 2019</Text></View>
+
       </View>
     );
   }
@@ -88,7 +94,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#333',
   },
   header: {
-    height: (Platform.OS === 'ios') ? 100 : 80,
+    height: (Platform.OS === 'ios') ? 100 : 110,
     paddingTop: (Platform.OS === 'ios') ? 0 : 20,
     justifyContent: 'space-between',
     flexDirection: 'row',
@@ -107,5 +113,25 @@ const styles = StyleSheet.create({
   headerButton: {
     fontSize: 35,
     fontWeight: 'bold',
-  }
+  },
+  msg: {
+    backgroundColor: '#edebeb',
+    padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  msgTxt: {
+    fontSize: 15,
+    color: '#525050',
+  },
+  footer: {
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    padding: 10,
+    left: 0, 
+    right: 0, 
+    bottom: 0
+    }
 });
